@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #020101;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f00707;
+            text-shadow: 0 4px 4px rgba(255, 217, 0, 0.616);
+        }
+
+        #conteiner {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        #calculadora {
+            background-color: #c9c9c9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            border: 1px solid #c5c5c5;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #ff0000ef;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #490303;
+            transition: 1s;
+        }
+
+        p {
+            margin-top: 20px;
+        }
+    </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPTecher's Machine</title>
+</head>
+
+<body>
+    <h1>SPTecher's Machine</h1>
+
+    <section id="conteiner">
+        <div id="calculadora">
+            <h3>Digite um número decimal:</h3>
+            <input id="dec_in" placeholder="Ex:42">
+            <button onclick="converterdecimal()">Converter</button>
+            <h3>Resultados:</h3>
+            <p>Octal:<div id="dec_octal"></div></p>
+            <p>Hexadecimal:<div id="dec_hexa"></div></p>
+            <p>Binário:<div id="dec_bin"></div></p>
+        </div>
+
+        <div id="calculadora">
+            <h3>Digite um número binário:</h3>
+            <input id="bin_in" placeholder="Ex:101010">
+            <button onclick="converterbinario()">Converter</button>
+            <h3>Resultados:</h3>
+            <p>Decimal:<div id="bin_dec"></div></p>
+            <p>Octal:<div id="bin_octal"></div></p>
+            <p>Hexadecimal:<div id="bin_hexa"></div></p>
+        </div>
+
+        <div id="calculadora">
+            <h3>Digite um número octal:</h3>
+            <input id="oct_in" placeholder="Ex:52">
+            <button onclick="converteroctal()">Converter</button>
+            <h3>Resultados:</h3>
+            <p>Decimal:<div id="oct_dec"></div></p>
+            <p>Hexadecimal:<div id="oct_hexa"></div></p>
+            <p>Binário:<div id="oct_bin"></div></p>
+        </div>
+
+        <div id="calculadora">
+            <h3>Digite um número hexadecimal:</h3>
+            <input id="hex_in" placeholder="Ex:2A">
+            <button onclick="converterhexa()">Converter</button>
+            <h3>Resultados:</h3>
+            <p>Decimal:<div id="hex_dec"></div></p>
+            <p>Octal:<div id="hex_octal"></div></p>
+            <p>Binário:<div id="hex_bin"></div></p>
+        </div>
+
+    </section>
+
+    <script>
+        function converterdecimal() {
+            var decimal = Number(dec_in.value);
+            dec_octal.innerHTML = decimal.toString(8);
+            dec_hexa.innerHTML = decimal.toString(16);
+            dec_bin.innerHTML = decimal.toString(2);
+        }
+
+        function converterbinario() {
+            var decimal = parseInt(bin_in.value, 2);
+            bin_dec.innerHTML = decimal;
+            bin_octal.innerHTML = decimal.toString(8);
+            bin_hexa.innerHTML = decimal.toString(16);
+        }
+
+        function converteroctal() {
+            var decimal = parseInt(oct_in.value, 8);
+            oct_dec.innerHTML = decimal;
+            oct_hexa.innerHTML = decimal.toString(16);
+            oct_bin.innerHTML = decimal.toString(2);
+        }
+
+        function converterhexa() {
+            var decimal = parseInt(hex_in.value, 16);
+            hex_dec.innerHTML = decimal;
+            hex_octal.innerHTML = decimal.toString(8);
+            hex_bin.innerHTML = decimal.toString(2);
+        }
+    </script>
+</body>
+</html>
